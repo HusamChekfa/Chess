@@ -6,19 +6,50 @@
 
 using namespace std;
 
-Piece::Piece() {
+Pawn::Pawn() {
 
-}
+};
 
-Piece::~Piece() {
+Pawn::~Pawn() {
 
-}
+};
 
-string Piece::getName() {
+Knight::Knight() {
 
-}
+};
 
-char* Piece::getChName() {
+Knight::~Knight() {
 
-}
+};
 
+Bishop::Bishop() {
+
+};
+
+Bishop::~Bishop() {
+
+};
+
+Rook::Rook() {
+
+};
+
+Rook::~Rook() {
+
+};
+
+Queen::Queen() {
+
+};
+
+Queen::~Queen() {
+
+};
+
+King::King() {
+
+};
+
+King::~King() {
+
+};
