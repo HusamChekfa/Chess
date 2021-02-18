@@ -44,7 +44,17 @@ Board::~Board() {
 };
 
 void Board::draw_board() {
-
+	for (unsigned int i = 0; i < 47; ++i) {
+		if ((i + 1) % 6 == 0) {
+			printf("----------   ----------   ----------   ----------   ----------   ----------   ----------   ----------   \n");
+		}
+		else if ((i + 4) % 6 == 0) {
+			printf("    %s     |     %s     |     %s     |     %s     |     %s     |     %s     |     %s     |     %s     \n", "1a", "1a", "1a", "1a", "1a", "1a", "1a", "1a");
+		}
+		else {
+			printf("           |            |            |            |            |            |            |            \n");
+		}
+	}
 };
 
 void Board::flip_board() {
