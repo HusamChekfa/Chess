@@ -12,6 +12,7 @@ int main() {
 
 	Board game;
 	// set pawns and knights to canMove = true
+	game.draw_board();
 
 	return 0;
 }
