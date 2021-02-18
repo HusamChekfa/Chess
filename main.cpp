@@ -1,4 +1,14 @@
+#include <iostream>
+#include <string>
+
+#include "Board.hpp"
+#include "Piece.hpp"
+
+using namespace std;
+
 int main() {
 
-  return 0;
+	Board game;
+
+	return 0;
 }
