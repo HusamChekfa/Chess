@@ -29,6 +29,7 @@ Making a simple Chess game for two players
 > 1 and 2 represent pieces of players 1 and 2, respectively.
 > 
 >   1P = Player 1 Pawn. 2K = Player 2 Knight.
+>   
 > Squares will be large.
 > 
 >   White squares will have periods in them to add brightness in the terminal.
