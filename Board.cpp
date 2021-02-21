@@ -11,9 +11,9 @@ Board::Board() {
 	//player1.resize(16);
 	//player2.resize(16);
 	//player1.at(0) = Pawn();
-
-	player1.resize(16);
-	player2.resize(16);
+	theBoard.resize(64); // board = 64 squares
+	player1.resize(16); // player 1 = 16 pieces
+	player2.resize(16); // player 2 = 16 pieces
 	for (unsigned int i = 0; i < 8; ++i) {
 		player1.at(i) = new Pawn;
 		player2.at(i) = new Pawn;
@@ -37,6 +37,24 @@ Board::Board() {
 	player2.at(15) = new King;
 
 	// set bools and chnames
+
+	for (unsigned int i = 0; i < 15; ++i) {
+		player1.at(i)->setPinned(false);
+		player2.at(i)->setPinned(false);
+		player1.at(i)->setCanMove(false);
+		player1.at(i)->setCanMove(false);
+		player1.at(i)->setActive(true);
+		player2.at(i)->setActive(true);
+		player1.at(i)->setChecked(false);
+		player2.at(i)->setChecked(false);
+	}
+	for (unsigned int i = 0; i < 10; ++i) { // pawns and knights can move at beginning // pawns = 0 -> 7 ; knights 8 -> 9
+		player1.at(i)->setCanMove(true);
+		player2.at(i)->setCanMove(true);
+	}
+
+	for (unsigned int i = 0; i < 16; ++i) { theBoard.at(i).piece = player1.at(i); }
+	for (unsigned int i = 48; i < 64; ++i) { theBoard.at(i).piece = player2.at(i - 48); }
 };
 
 Board::~Board() {
@@ -90,5 +108,7 @@ void Board::flip_board() {
 };
 
 void Board::draw_flip_board() {
-
+	// same as draw_board()
+	// only change is reverse print of theBoard
+	// squares printed same
 };
