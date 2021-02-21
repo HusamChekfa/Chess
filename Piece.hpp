@@ -16,7 +16,17 @@ class Piece {
 	  string getChName() { return chName; };
 	  virtual void move() = 0;
 	  bool getCanMove() { return canMove; };
-	  bool setCanMove(bool move) { canMove = move; };
+	  void setCanMove(bool move) { canMove = move; };
+	  bool getPinned() { return pinned; };
+	  void setPinned(bool pin) { pinned = pin; };
+	  bool getActive() { return active; };
+	  void setActive(bool active_) { active = active_; };
+	  unsigned int getRow() { return row; };
+	  void setRow(unsigned int row_) { row = row_; };
+	  char getColumn() { return column; };
+	  void setColumn(char column_) { column = column_; };
+	  bool getChecked() { return checked; };
+	  void setChecked(bool checked_) { checked = checked_; };
 
 	private:
 	  string name;
@@ -24,6 +34,7 @@ class Piece {
 	  bool pinned = false; // piece cannot move if true - will help for stalemate check and legal moves
 	  bool active = true; // all pieces start active - cannot move inactive pieces (gone from board)
 	  bool canMove = false;
+	  bool checked = false;
 	  unsigned int row;
 	  char column;
 };
@@ -79,8 +90,11 @@ class King : public Piece {
 		King();
 		~King();
 		virtual void move() {};
+		// bool getChecked() { return checked; };
+		// void setChecked(bool checked_) { checked = checked_; };
 	private:
 		string name = "King";
+		// bool checked = false;
 };
 
 #endif
