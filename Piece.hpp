@@ -27,6 +27,16 @@ class Piece {
 	  void setColumn(char column_) { column = column_; };
 	  bool getChecked() { return checked; };
 	  void setChecked(bool checked_) { checked = checked_; };
+	  bool getWhite() { return white; };
+	  void setWhite(bool white_) { white = white_; };
+	  char getAbbr() { return abbreviation; };
+	  void setAbbr(char abbr_) { abbreviation = abbr_; };
+	  string printPiece() {
+		  string printPiece = "";
+		  if (white) { printPiece += '1'; }
+		  else { printPiece += '2'; }
+		  printPiece += abbreviation;
+	  }
 
 	private:
 	  string name;
@@ -35,8 +45,10 @@ class Piece {
 	  bool active = true; // all pieces start active - cannot move inactive pieces (gone from board)
 	  bool canMove = false;
 	  bool checked = false;
+	  bool white = false;
 	  unsigned int row;
 	  char column;
+	  char abbreviation = 'L';
 };
 
 class Pawn : public Piece {
@@ -46,6 +58,7 @@ class Pawn : public Piece {
 		virtual void move() {};
 	private:
 		string name = "Pawn";
+		char abbreviation = 'P';
 };
 
 class Knight : public Piece {
