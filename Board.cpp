@@ -52,9 +52,68 @@ Board::Board() {
 		player1.at(i)->setCanMove(true);
 		player2.at(i)->setCanMove(true);
 	}
+	for (unsigned int i = 0; i < 16; ++i) {
+		player1.at(i)->setWhite(true);
+		player2.at(i)->setWhite(false);
+	}
+	for (unsigned int i = 0; i < 8; ++i) {
+		player1.at(i)->setAbbr('P');
+		player2.at(i)->setAbbr('P');
+	}
+	for (unsigned int i = 8; i < 10; ++i) {
+		player1.at(i)->setAbbr('K');
+		player2.at(i)->setAbbr('K');
+	}
+	for (unsigned int i = 10; i < 12; ++i) {
+		player1.at(i)->setAbbr('B');
+		player2.at(i)->setAbbr('B');
+	}
+	for (unsigned int i = 12; i < 14; ++i) {
+		player1.at(i)->setAbbr('R');
+		player2.at(i)->setAbbr('R');
+	}
+	player1.at(14)->setAbbr('Q');
+	player2.at(14)->setAbbr('Q');
+	player1.at(15)->setAbbr('K');
+	player2.at(15)->setAbbr('K');
 
+
+	// innit board squares
+	for (unsigned int i = 0; i < 64; ++i) {
+		theBoard.at(i).setColumn((i % 8) + 97); // a = 97 ascii
+		theBoard.at(i).setRow((i / 8) + 1);
+	}
+
+	// set piece pointers of sqaures
+	// player1
+	theBoard.at(0).piece = player1.at(12);
+	theBoard.at(7).piece = player1.at(13);
+	theBoard.at(1).piece = player1.at(8);
+	theBoard.at(6).piece = player1.at(9);
+	theBoard.at(2).piece = player1.at(10);
+	theBoard.at(5).piece = player1.at(11);
+	theBoard.at(3).piece = player1.at(14);
+	theBoard.at(4).piece = player1.at(15);
+	for (unsigned int i = 0; i < 8; ++i) {
+		theBoard.at(i + 8).piece = player1.at(i);
+	}
+	// player2
+	theBoard.at(56).piece = player1.at(12);
+	theBoard.at(63).piece = player1.at(13);
+	theBoard.at(57).piece = player1.at(8);
+	theBoard.at(62).piece = player1.at(9);
+	theBoard.at(58).piece = player1.at(10);
+	theBoard.at(61).piece = player1.at(11);
+	theBoard.at(59).piece = player1.at(14);
+	theBoard.at(60).piece = player1.at(15);
+	for (unsigned int i = 0; i < 8; ++i) {
+		theBoard.at(i + 48).piece = player1.at(i);
+	}
+	
+	/*
 	for (unsigned int i = 0; i < 16; ++i) { theBoard.at(i).piece = player1.at(i); }
 	for (unsigned int i = 48; i < 64; ++i) { theBoard.at(i).piece = player2.at(i - 48); }
+	*/
 };
 
 Board::~Board() {

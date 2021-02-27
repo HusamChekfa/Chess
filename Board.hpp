@@ -10,9 +10,38 @@
 using namespace std;
 
 struct Square {
-	Piece* piece;
-	unsigned int row; // 1 - 8 .. rank
-	char column; // a - h .. file
+	Square() {}
+	/*
+	Square(char column_, unsigned int row_) {
+		column = column_;
+		row = row_;
+	}
+	*/
+	~Square() {}
+	
+	char getColumn() { return column; };
+	void setColumn(unsigned int column1) { column = column1; };
+	unsigned int getRow() { return row; };
+	void setRow(unsigned int row1) { row = row1; };
+	Piece* getPiece() { return piece; }
+	void setPiece(Piece* piece1) { piece = piece1; };
+
+	string printSquare() {
+		string print = "";
+		if (column != 'i') { print += column; }
+		else { print += ' '; }
+		if (row != 9) { print += to_string(row); }
+		else { print += ' '; }
+		return print;
+	}
+
+	Piece* piece = nullptr;
+	unsigned int row = 9; // 1 - 8 .. rank
+	char column = 'i'; // a - h .. file
+};
+
+struct Move {
+
 };
 
 class Board {
