@@ -21,12 +21,12 @@ class Piece {
 	  void setPinned(bool pin) { pinned = pin; };
 	  bool getActive() { return active; };
 	  void setActive(bool active_) { active = active_; };
-	  unsigned int getRow() { return row; };
-	  void setRow(unsigned int row_) { row = row_; };
-	  char getColumn() { return column; };
-	  void setColumn(char column_) { column = column_; };
-	  bool getChecked() { return checked; };
-	  void setChecked(bool checked_) { checked = checked_; };
+	  // unsigned int getRow() { return row; };
+	  // void setRow(unsigned int row_) { row = row_; };
+	  // char getColumn() { return column; };
+	  // void setColumn(char column_) { column = column_; };
+	  //bool getChecked() { return checked; };
+	  //void setChecked(bool checked_) { checked = checked_; };
 	  bool getWhite() { return white; };
 	  void setWhite(bool white_) { white = white_; };
 	  char getAbbr() { return abbreviation; };
@@ -36,6 +36,7 @@ class Piece {
 		  if (white) { printPiece += '1'; }
 		  else { printPiece += '2'; }
 		  printPiece += abbreviation;
+		  return printPiece;
 	  }
 
 	private:
@@ -44,10 +45,10 @@ class Piece {
 	  bool pinned = false; // piece cannot move if true - will help for stalemate check and legal moves
 	  bool active = true; // all pieces start active - cannot move inactive pieces (gone from board)
 	  bool canMove = false;
-	  bool checked = false;
+	  //bool checked = false;
 	  bool white = false;
-	  unsigned int row;
-	  char column;
+	  // unsigned int row = 0;
+	  // char column = 'z';
 	  char abbreviation = 'L';
 };
 
@@ -103,11 +104,11 @@ class King : public Piece {
 		King();
 		~King();
 		virtual void move() {};
-		// bool getChecked() { return checked; };
-		// void setChecked(bool checked_) { checked = checked_; };
+		bool getChecked() { return checked; };
+		void setChecked(bool checked_) { checked = checked_; };
 	private:
 		string name = "King";
-		// bool checked = false;
+		bool checked = false;
 };
 
 #endif

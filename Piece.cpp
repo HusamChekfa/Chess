@@ -7,7 +7,11 @@
 using namespace std;
 
 Pawn::Pawn() {
-
+	setPinned(false);
+	setCanMove(false);
+	setActive(true);
+	setWhite(false);
+	setAbbr('P');
 };
 
 Pawn::~Pawn() {
@@ -15,7 +19,11 @@ Pawn::~Pawn() {
 };
 
 Knight::Knight() {
-
+	setPinned(false);
+	setCanMove(false);
+	setActive(true);
+	setWhite(false);
+	setAbbr('N');
 };
 
 Knight::~Knight() {
@@ -23,7 +31,11 @@ Knight::~Knight() {
 };
 
 Bishop::Bishop() {
-
+	setPinned(false);
+	setCanMove(false);
+	setActive(true);
+	setWhite(false);
+	setAbbr('B');
 };
 
 Bishop::~Bishop() {
@@ -31,7 +43,11 @@ Bishop::~Bishop() {
 };
 
 Rook::Rook() {
-
+	setPinned(false);
+	setCanMove(false);
+	setActive(true);
+	setWhite(false);
+	setAbbr('R');
 };
 
 Rook::~Rook() {
@@ -39,7 +55,11 @@ Rook::~Rook() {
 };
 
 Queen::Queen() {
-
+	setPinned(false);
+	setCanMove(false);
+	setActive(true);
+	setWhite(false);
+	setAbbr('Q');
 };
 
 Queen::~Queen() {
@@ -47,7 +67,12 @@ Queen::~Queen() {
 };
 
 King::King() {
-
+	setPinned(false);
+	setCanMove(false);
+	setActive(true);
+	setWhite(false);
+	setAbbr('K');
+	setChecked(false);
 };
 
 King::~King() {
