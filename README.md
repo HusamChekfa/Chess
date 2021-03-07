@@ -28,8 +28,11 @@ Making a simple Chess game for two players
 # Testing Ideas
 >
 > Set up a board
+> 
   > Check if a certain move exists for a certain Piece
+  > 
   > Check if Piece is pinned
+  > 
   > Check if King is in check
 
 # Notes
