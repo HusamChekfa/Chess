@@ -11,6 +11,13 @@ using namespace std;
 // promotion -> of white must setWhite(true) bc default white == false
 // why are squareNum and pieceNum printf statements printing reverse order
 // if king is checked and valid move is pawn promotion, delete, new, set pinned == true -- promote into pin
+
+// figure out castle in moves ? - can castle if enemy piece targetting piece he walks on
+
+// upon moving --> check if !hasMoved --> moved = true
+
+// figure out moves only for checks
+
 int check_board(Board);
 
 

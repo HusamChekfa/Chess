@@ -58,6 +58,19 @@ Board::Board() {
 
 	// set piece pointers of sqaures
 	// player1
+	theBoard.at(0).setPiece(player1.at(12));
+	theBoard.at(7).setPiece(player1.at(13));
+	theBoard.at(1).setPiece(player1.at(8));
+	theBoard.at(6).setPiece(player1.at(9));
+	theBoard.at(2).setPiece(player1.at(10));
+	theBoard.at(5).setPiece(player1.at(11));
+	theBoard.at(3).setPiece(player1.at(14));
+	theBoard.at(4).setPiece(player1.at(15));
+
+	for (unsigned int i = 0; i < 8; ++i) {
+		theBoard.at(i + 8).setPiece(player1.at(i));
+	}
+	/*
 	theBoard.at(0).piece = player1.at(12);
 	theBoard.at(7).piece = player1.at(13);
 	theBoard.at(1).piece = player1.at(8);
@@ -66,10 +79,26 @@ Board::Board() {
 	theBoard.at(5).piece = player1.at(11);
 	theBoard.at(3).piece = player1.at(14);
 	theBoard.at(4).piece = player1.at(15);
+	
 	for (unsigned int i = 0; i < 8; ++i) {
 		theBoard.at(i + 8).piece = player1.at(i);
 	}
+	*/
 	// player2
+	theBoard.at(56).setPiece(player2.at(12));
+	theBoard.at(63).setPiece(player2.at(13));
+	theBoard.at(57).setPiece(player2.at(8));
+	theBoard.at(62).setPiece(player2.at(9));
+	theBoard.at(58).setPiece(player2.at(10));
+	theBoard.at(61).setPiece(player2.at(11));
+	theBoard.at(59).setPiece(player2.at(14));
+	theBoard.at(60).setPiece(player2.at(15));
+
+	for (unsigned int i = 0; i < 8; ++i) {
+		theBoard.at(i + 48).setPiece(player2.at(i));
+	}
+
+	/*
 	theBoard.at(56).piece = player2.at(12);
 	theBoard.at(63).piece = player2.at(13);
 	theBoard.at(57).piece = player2.at(8);
@@ -78,9 +107,11 @@ Board::Board() {
 	theBoard.at(61).piece = player2.at(11);
 	theBoard.at(59).piece = player2.at(14);
 	theBoard.at(60).piece = player2.at(15);
+
 	for (unsigned int i = 0; i < 8; ++i) {
 		theBoard.at(i + 48).piece = player2.at(i);
 	}
+	*/
 	
 	/*
 	for (unsigned int i = 0; i < 16; ++i) { theBoard.at(i).piece = player1.at(i); }
@@ -210,4 +241,29 @@ void Board::draw_flip_board() {
 	// same as draw_board()
 	// only change is reverse print of theBoard
 	// squares printed same
+};
+
+void Board::setMoves() {
+	// do all exept king of white
+	// do all exceept king of black
+	// do king white
+	// do king black
+	// check if king black holds any similar to king white, if so remove from both
+	// check if active
+	// check if pinned
+	// for kings, iterate through all of enemy <<>> to check if in common, if in common then remove from king
+
+	// player1 moves all except king
+	for (unsigned int i = 0; i < 15; ++i) { // not iterating king
+		moves1.at(i).clear(); // empty the vector
+
+		string pSquare = player1.at(i)->printPiece();
+		char cSquare = player1.at(i)->getColumn();
+		unsigned int rSquare = player1.at(i)->getRow();
+
+		// moves1.at(i) = player1.at(i)->getMoves();
+
+	}
+
+
 };

@@ -32,7 +32,7 @@ struct Square {
 	unsigned int getRow() { return row; };
 	void setRow(unsigned int row1) { row = row1; };
 	Piece* getPiece() { return piece; }
-	void setPiece(Piece* piece1) { piece = piece1; };
+	void setPiece(Piece* piece1) { piece = piece1; piece->setColumn(column); piece->setRow(row); };
 	bool getWhiteSquare() { return whiteSquare; };
 	void setWhiteSquare(bool whiteSquare1) { whiteSquare = whiteSquare1; };
 
@@ -106,6 +106,9 @@ class Board {
 	  void draw_flip_board();
 	  vector<Piece*> getPlayer1() { return player1; };
 	  vector<Piece*> getPlayer2() { return player2; };
+	  vector<vector<Square>> getMoves1() { return moves1; };
+	  vector<vector<Square>> getMoves2() { return moves2; };
+	  void setMoves();
 
   private:
 	  // create board of 64 squares
@@ -116,6 +119,8 @@ class Board {
 	  // player sizes can stay 16. if pawn promotes -> delete pawn + new queen same vector index
 	  vector<Piece*> player1;
 	  vector<Piece*> player2;
+	  vector<vector<Square>> moves1;
+	  vector<vector<Square>> moves2;
 	  
 };
 
