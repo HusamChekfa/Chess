@@ -97,6 +97,21 @@ Board::Board() {
 Board::~Board() {
 
 };
+
+string Board::helper_printSquare(unsigned int& val) {
+	string squareName = "";
+	//unsigned int temp = val;
+	squareName += (val % 8 + 97); // add char
+	squareName += (to_string((val / 8) + 1));
+
+	if (val % 8 == 7) {
+		if (val == 7) { val = 0; }
+		else { val -= 15; }
+	}
+	else { ++val; }
+	
+	return squareName;
+};
 //aaa
 /*
 void Board::helper_draw_board() {
@@ -104,59 +119,87 @@ void Board::helper_draw_board() {
 };
 */
 void Board::draw_board() {
-	unsigned int squareNum = 63;
-	unsigned int pieceNum = 63;
-	for (unsigned int i = 0; i < 49; ++i) {
-		if (i % 6 == 0) {
-			printf(" ----------- + ---------- + ---------- + ---------- + ---------- + ---------- + ---------- + -----------\n");
-		}
-		/*else if ((i + 3) % 6 == 0) {
-			printf("|     %s     |     %s     |     %s     |     %s     |     %s     |     %s     |     %s     |     %s     |\n", "1a", "1a", "1a", "1a", "1a", "1a", "1a", "1a");
-		}*/
-		else if ((i % 12) == 3) {
-			printf("|:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |\n", theBoard.at(pieceNum).printPiece(pieceNum).c_str(), theBoard.at(pieceNum).printPiece(pieceNum).c_str(), theBoard.at(pieceNum).printPiece(pieceNum).c_str(), theBoard.at(pieceNum).printPiece(pieceNum).c_str(), theBoard.at(pieceNum).printPiece(pieceNum).c_str(), theBoard.at(pieceNum).printPiece(pieceNum).c_str(), theBoard.at(pieceNum).printPiece(pieceNum).c_str(), theBoard.at(pieceNum).printPiece(pieceNum).c_str());
-		}
-		else if ((i % 12) == 9) {
-			printf("|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|\n", theBoard.at(pieceNum).printPiece(pieceNum).c_str(), theBoard.at(pieceNum).printPiece(pieceNum).c_str(), theBoard.at(pieceNum).printPiece(pieceNum).c_str(), theBoard.at(pieceNum).printPiece(pieceNum).c_str(), theBoard.at(pieceNum).printPiece(pieceNum).c_str(), theBoard.at(pieceNum).printPiece(pieceNum).c_str(), theBoard.at(pieceNum).printPiece(pieceNum).c_str(), theBoard.at(pieceNum).printPiece(pieceNum).c_str());
-		}
-		else if (i % 12 == 4) {
-			printf("|:::         |            |:::         |            |:::         |            |:::         |            |\n");
-		}
-		else if (i % 12 == 10) {
-			printf("|            |:::         |            |:::         |            |:::         |            |:::         |\n");
-		}
-		else if ((i % 12) < 6) {
-			if ((i % 12) == 2 || (i % 12) == 4) {
-				printf("|:::      :::|            |:::      :::|            |:::      :::|            |:::      :::|            |\n");
-			}
-			else if (i % 12 == 5) {
-				printf("|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|\n", theBoard.at(squareNum).printSquare(squareNum).c_str(), theBoard.at(squareNum).printSquare(squareNum).c_str(), theBoard.at(squareNum).printSquare(squareNum).c_str(), theBoard.at(squareNum).printSquare(squareNum).c_str(), theBoard.at(squareNum).printSquare(squareNum).c_str(), theBoard.at(squareNum).printSquare(squareNum).c_str(), theBoard.at(squareNum).printSquare(squareNum).c_str(), theBoard.at(squareNum).printSquare(squareNum).c_str());
-			}
-			else {
-				printf("|::::::::::::|            |::::::::::::|            |::::::::::::|            |::::::::::::|            |\n");
-			}
-		}
-		/*else if ((i % 12) < 6) {
-			printf("|------------|            |------------|            |------------|            |------------|            |\n");
-		}*/
-		else {
-			if ((i % 12) == 8 || (i % 12) == 10) {
-				printf("|            |:::      :::|            |:::      :::|            |:::      :::|            |:::      :::|\n");
-			}
-			else if (i % 12 == 11) {
-				printf("|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|\n", theBoard.at(squareNum).printSquare(squareNum).c_str(), theBoard.at(squareNum).printSquare(squareNum).c_str(), theBoard.at(squareNum).printSquare(squareNum).c_str(), theBoard.at(squareNum).printSquare(squareNum).c_str(), theBoard.at(squareNum).printSquare(squareNum).c_str(), theBoard.at(squareNum).printSquare(squareNum).c_str(), theBoard.at(squareNum).printSquare(squareNum).c_str(), theBoard.at(squareNum).printSquare(squareNum).c_str());
-			}
-			else {
-				printf("|            |::::::::::::|            |::::::::::::|            |::::::::::::|            |::::::::::::|\n");
-			}
-		}
-		/*else {
-			printf("|            |------------|            |------------|            |------------|            |------------|\n");
-		}*/
-		/*else {
-			printf("|            |            |            |            |            |            |            |            |\n");
-		}*/
-	}
+
+	// unsigned squareStr = 56;
+	// helper_printSquare(squareStr).c_str()
+	// theBoard.at(56).printSquareTwo().c_str()
+	// theBoard.at(56).getPiece()->printPiece().c_str()
+	//unsigned int pNum = 56;
+	printf(" ----------- + ---------- + ---------- + ---------- + ---------- + ---------- + ---------- + -----------\n");
+	printf("|::::::::::::|            |::::::::::::|            |::::::::::::|            |::::::::::::|            |\n");
+	printf("|:::      :::|            |:::      :::|            |:::      :::|            |:::      :::|            |\n");
+	printf("|:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |\n", 
+		theBoard.at(56).printPiece().c_str(), theBoard.at(57).printPiece().c_str(), theBoard.at(58).printPiece().c_str(), theBoard.at(59).printPiece().c_str(),
+		theBoard.at(60).printPiece().c_str(), theBoard.at(61).printPiece().c_str(), theBoard.at(62).printPiece().c_str(), theBoard.at(63).printPiece().c_str());
+	printf("|:::         |            |:::         |            |:::         |            |:::         |            |\n");
+	printf("|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|\n", "a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8");
+
+	printf(" ----------- + ---------- + ---------- + ---------- + ---------- + ---------- + ---------- + -----------\n");
+	printf("|            |::::::::::::|            |::::::::::::|            |::::::::::::|            |::::::::::::|\n");
+	printf("|            |:::      :::|            |:::      :::|            |:::      :::|            |:::      :::|\n");
+	printf("|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|\n", 
+		theBoard.at(48).printPiece().c_str(), theBoard.at(49).printPiece().c_str(), theBoard.at(50).printPiece().c_str(), theBoard.at(51).printPiece().c_str(),
+		theBoard.at(52).printPiece().c_str(), theBoard.at(53).printPiece().c_str(), theBoard.at(54).printPiece().c_str(), theBoard.at(55).printPiece().c_str());
+	printf("|            |:::         |            |:::         |            |:::         |            |:::         |\n");
+	printf("|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|\n", "a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7");
+
+	printf(" ----------- + ---------- + ---------- + ---------- + ---------- + ---------- + ---------- + -----------\n");
+	printf("|::::::::::::|            |::::::::::::|            |::::::::::::|            |::::::::::::|            |\n");
+	printf("|:::      :::|            |:::      :::|            |:::      :::|            |:::      :::|            |\n");
+	printf("|:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |\n", 
+		theBoard.at(40).printPiece().c_str(), theBoard.at(41).printPiece().c_str(), theBoard.at(42).printPiece().c_str(), theBoard.at(43).printPiece().c_str(),
+		theBoard.at(44).printPiece().c_str(), theBoard.at(45).printPiece().c_str(), theBoard.at(46).printPiece().c_str(), theBoard.at(47).printPiece().c_str());
+	printf("|:::         |            |:::         |            |:::         |            |:::         |            |\n");
+	printf("|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|\n", "a6", "b6", "c6", "d6", "e6", "f6", "g6", "h6");
+
+	printf(" ----------- + ---------- + ---------- + ---------- + ---------- + ---------- + ---------- + -----------\n");
+	printf("|            |::::::::::::|            |::::::::::::|            |::::::::::::|            |::::::::::::|\n");
+	printf("|            |:::      :::|            |:::      :::|            |:::      :::|            |:::      :::|\n");
+	printf("|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|\n", 
+		theBoard.at(32).printPiece().c_str(), theBoard.at(33).printPiece().c_str(), theBoard.at(34).printPiece().c_str(), theBoard.at(35).printPiece().c_str(),
+		theBoard.at(36).printPiece().c_str(), theBoard.at(37).printPiece().c_str(), theBoard.at(38).printPiece().c_str(), theBoard.at(39).printPiece().c_str());
+	printf("|            |:::         |            |:::         |            |:::         |            |:::         |\n");
+	printf("|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|\n", "a5", "b5", "c5", "d5", "e5", "f5", "g5", "h5");
+
+	printf(" ----------- + ---------- + ---------- + ---------- + ---------- + ---------- + ---------- + -----------\n");
+	printf("|::::::::::::|            |::::::::::::|            |::::::::::::|            |::::::::::::|            |\n");
+	printf("|:::      :::|            |:::      :::|            |:::      :::|            |:::      :::|            |\n");
+	printf("|:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |\n", 
+		theBoard.at(24).printPiece().c_str(), theBoard.at(25).printPiece().c_str(), theBoard.at(26).printPiece().c_str(), theBoard.at(27).printPiece().c_str(),
+		theBoard.at(28).printPiece().c_str(), theBoard.at(29).printPiece().c_str(), theBoard.at(30).printPiece().c_str(), theBoard.at(31).printPiece().c_str());
+	printf("|:::         |            |:::         |            |:::         |            |:::         |            |\n");
+	printf("|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|\n", "a4", "b4", "c4", "d4", "e4", "f4", "g4", "h4");
+
+	printf(" ----------- + ---------- + ---------- + ---------- + ---------- + ---------- + ---------- + -----------\n");
+	printf("|            |::::::::::::|            |::::::::::::|            |::::::::::::|            |::::::::::::|\n");
+	printf("|            |:::      :::|            |:::      :::|            |:::      :::|            |:::      :::|\n");
+	printf("|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|\n", 
+		theBoard.at(16).printPiece().c_str(), theBoard.at(17).printPiece().c_str(), theBoard.at(18).printPiece().c_str(), theBoard.at(19).printPiece().c_str(),
+		theBoard.at(20).printPiece().c_str(), theBoard.at(21).printPiece().c_str(), theBoard.at(22).printPiece().c_str(), theBoard.at(23).printPiece().c_str());
+	printf("|            |:::         |            |:::         |            |:::         |            |:::         |\n");
+	printf("|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|\n", "a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3");
+
+	printf(" ----------- + ---------- + ---------- + ---------- + ---------- + ---------- + ---------- + -----------\n");
+	printf("|::::::::::::|            |::::::::::::|            |::::::::::::|            |::::::::::::|            |\n");
+	printf("|:::      :::|            |:::      :::|            |:::      :::|            |:::      :::|            |\n");
+	printf("|:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |\n", 
+		theBoard.at(8).printPiece().c_str(), theBoard.at(9).printPiece().c_str(), theBoard.at(10).printPiece().c_str(), theBoard.at(11).printPiece().c_str(),
+		theBoard.at(12).printPiece().c_str(), theBoard.at(13).printPiece().c_str(), theBoard.at(14).printPiece().c_str(), theBoard.at(15).printPiece().c_str());
+	printf("|:::         |            |:::         |            |:::         |            |:::         |            |\n");
+	printf("|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|\n", "a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2");
+
+	printf(" ----------- + ---------- + ---------- + ---------- + ---------- + ---------- + ---------- + -----------\n");
+	printf("|            |::::::::::::|            |::::::::::::|            |::::::::::::|            |::::::::::::|\n");
+	printf("|            |:::      :::|            |:::      :::|            |:::      :::|            |:::      :::|\n");
+	printf("|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|     %s     |:::  %s  :::|\n", 
+		theBoard.at(0).printPiece().c_str(), theBoard.at(1).printPiece().c_str(), theBoard.at(2).printPiece().c_str(), theBoard.at(3).printPiece().c_str(),
+		theBoard.at(4).printPiece().c_str(), theBoard.at(5).printPiece().c_str(), theBoard.at(6).printPiece().c_str(), theBoard.at(7).printPiece().c_str());
+	printf("|            |:::         |            |:::         |            |:::         |            |:::         |\n");
+	printf("|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|          %s|::::::::  %s|\n", "a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1");
+
+	printf(" ----------- + ---------- + ---------- + ---------- + ---------- + ---------- + ---------- + -----------\n");
+
+	
 };
 
 void Board::flip_board() {
