@@ -31,7 +31,7 @@ class Piece {
 	  void setWhite(bool white_) { white = white_; };
 	  char getAbbr() { return abbreviation; };
 	  void setAbbr(char abbr_) { abbreviation = abbr_; };
-	  virtual vector<Square> getMoves() = 0;
+	  // virtual vector<Square> getMoves() = 0;
 	  string printPiece() {
 		  string printPiece = "";
 		  if (white) { printPiece += '1'; }
@@ -39,7 +39,7 @@ class Piece {
 		  printPiece += abbreviation;
 		  return printPiece;
 	  }
-	  vector<Square> getMoveTo() { return moveTo; };
+	  // vector<Square> getMoveTo() { return moveTo; };
 	  bool getMoved() { return hasMoved; };
 	  void setMoved(bool moved_) { hasMoved = moved_; };
 
@@ -54,7 +54,7 @@ class Piece {
 	  unsigned int row = 0;
 	  char column = 'z';
 	  char abbreviation = 'L';
-	  vector<Square> moveTo;
+	  // vector<Square> moveTo;
 	  bool hasMoved = false;
 };
 
@@ -63,7 +63,7 @@ class Pawn : public Piece {
 		Pawn();
 		~Pawn();
 		virtual void move() {};
-		virtual vector<Square> getMoves() override;
+		// virtual vector<Square> getMoves() override;
 	private:
 		string name = "Pawn";
 		char abbreviation = 'P';
@@ -74,7 +74,7 @@ class Knight : public Piece {
 		Knight();
 		~Knight();
 		virtual void move() {};
-		virtual vector<Square> getMoves() override;
+		// virtual vector<Square> getMoves() override;
 	private:
 		string name = "Knight";
 };
@@ -84,7 +84,7 @@ class Bishop : public Piece {
 		Bishop();
 		~Bishop();
 		virtual void move() {};
-		virtual vector<Square> getMoves() override;
+		// virtual vector<Square> getMoves() override;
 	private:
 		string name = "Bishop";
 		bool white = false; // set one to true
@@ -95,7 +95,7 @@ class Rook : public Piece {
 		Rook();
 		~Rook();
 		virtual void move() {};
-		virtual vector<Square> getMoves() override;
+		// virtual vector<Square> getMoves() override;
 	private:
 		string name = "Rook";
 };
@@ -105,7 +105,7 @@ class Queen : public Piece {
 		Queen();
 		~Queen();
 		virtual void move() {};
-		virtual vector<Square> getMoves() override;
+		// virtual vector<Square> getMoves() override;
 	private:
 		string name = "Queen";
 };
@@ -115,7 +115,7 @@ class King : public Piece {
 		King();
 		~King();
 		virtual void move() {};
-		virtual vector<Square> getMoves() override;
+		// virtual vector<Square> getMoves() override;
 		bool getChecked() { return checked; };
 		void setChecked(bool checked_) { checked = checked_; };
 	private:

@@ -18,6 +18,7 @@ Pawn::~Pawn() {
 
 };
 
+/*
 vector<Square> Pawn::getMoves() {
 	vector<Square> v;
 	string pSquare = printPiece();
@@ -27,7 +28,7 @@ vector<Square> Pawn::getMoves() {
 	// max 4 moves if !hasMoved
 	// max 3 moves if hasMoved
 	
-	/*
+	
 	if !active
 		return v
 	if pinned
@@ -61,10 +62,10 @@ vector<Square> Pawn::getMoves() {
 
 		if moves leads to row 1, return (PROMOTION)
 	}
-	
-	*/
+
 	return v;
-}
+};
+*/
 
 // move () if --> 8 call promotion , delete, new (should type promotion !)
 
@@ -80,6 +81,7 @@ Knight::~Knight() {
 
 };
 
+/*
 vector<Square> Knight::getMoves() {
 	vector<Square> v;
 	string pSquare = printPiece();
@@ -92,7 +94,7 @@ vector<Square> Knight::getMoves() {
 		// return v
 
 	// 8 max moves
-	/*
+	
 	check if each square exists ofc
 	1 <= row <= 8
 	a <= column <= h
@@ -113,11 +115,9 @@ vector<Square> Knight::getMoves() {
 	- 1 column + 2 row
 	- 2 column + 1 row
 
-	*/
-
-
 	return v;
-}
+};
+*/
 
 Bishop::Bishop() {
 	setPinned(false);
@@ -131,6 +131,7 @@ Bishop::~Bishop() {
 
 };
 
+/*
 vector<Square> Bishop::getMoves() {
 	vector<Square> v;
 	string pSquare = printPiece();
@@ -146,7 +147,8 @@ vector<Square> Bishop::getMoves() {
 	// upon reaching a square which holds ally do not include then stop // continue //, holds enemy include then stop // continue // , end of board include then stop // continue //
 
 	return v;
-}
+};
+*/
 
 Rook::Rook() {
 	setPinned(false);
@@ -160,6 +162,7 @@ Rook::~Rook() {
 
 };
 
+/*
 vector<Square> Rook::getMoves() {
 	vector<Square> v;
 	string pSquare = printPiece();
@@ -174,9 +177,9 @@ vector<Square> Rook::getMoves() {
 	// check 4 directions
 	// upon reaching a square which holds ally do not include then stop // continue //, holds enemy include then stop // continue // , end of board include then stop // continue //
 
-
 	return v;
-}
+};
+*/
 
 Queen::Queen() {
 	setPinned(false);
@@ -190,6 +193,7 @@ Queen::~Queen() {
 
 };
 
+/*
 vector<Square> Queen::getMoves() {
 	vector<Square> v;
 	string pSquare = printPiece();
@@ -203,9 +207,9 @@ vector<Square> Queen::getMoves() {
 
 	// combine bishop + rook
 
-
 	return v;
-}
+};
+*/
 
 King::King() {
 	setPinned(false);
@@ -220,6 +224,7 @@ King::~King() {
 
 };
 
+/*
 vector<Square> King::getMoves() {
 	// vector<Square> v = getMoveTo();
 
@@ -235,7 +240,7 @@ vector<Square> King::getMoves() {
 
 	// max 4 squares - forget about castle for now
 
-	/*
+	
 	get square
 
 	// do not check if active / pinned
@@ -253,8 +258,6 @@ vector<Square> King::getMoves() {
 	- 1 column
 	- 1 column + 1 row
 	
-	*/
-
-
 	return v;
-}
+};
+*/

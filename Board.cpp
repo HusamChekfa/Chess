@@ -261,7 +261,7 @@ void Board::setMoves() {
 		char cSquare = player1.at(i)->getColumn();
 		unsigned int rSquare = player1.at(i)->getRow();
 
-		moves1.at(i) = player1.at(i)->getMoves();
+		// moves1.at(i) = player1.at(i)->getMoves();
 
 	}
 
