@@ -36,6 +36,13 @@ struct Square {
 	bool getWhiteSquare() { return whiteSquare; };
 	void setWhiteSquare(bool whiteSquare1) { whiteSquare = whiteSquare1; };
 
+	string printSquareTwo() {
+		string ret = "";
+		ret += column;
+		ret += to_string(row);
+		return ret;
+	}
+
 	string printSquare(unsigned int& squareNum) {
 		/*
 		if (squareNum % 8 == 7) {
@@ -60,9 +67,14 @@ struct Square {
 		*/
 	}
 
-	string printPiece(unsigned int& pieceNum) {
-		--pieceNum;
-
+	string printPiece(/*unsigned int& pieceNum*/) {
+		/*
+		if (pieceNum % 8 == 7) {
+			if (pieceNum == 7) { pieceNum = 0; }
+			else { pieceNum -= 15; }
+		}
+		else { ++pieceNum; }
+		*/
 		if (piece == nullptr) { return "  "; };
 		return piece->printPiece();
 	}
@@ -98,6 +110,7 @@ class Board {
   private:
 	  // create board of 64 squares
 	  vector<Square> theBoard;
+	  string helper_printSquare(unsigned int&);
 	  // void helper_draw_board();
 
 	  // player sizes can stay 16. if pawn promotes -> delete pawn + new queen same vector index
