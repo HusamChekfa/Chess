@@ -29,11 +29,11 @@ Making a simple Chess game for two players
 >
 > Set up a board
 > 
-  > Check if a certain move exists for a certain Piece
+      > Check if a certain move exists for a certain Piece
   > 
-  > Check if Piece is pinned
+      > Check if Piece is pinned
   > 
-  > Check if King is in check
+      > Check if King is in check
 
 # Notes
 > 1 and 2 represent pieces of players 1 and 2, respectively.
